@@ -6,7 +6,7 @@ parameters:
   phystrix.command_metrics_factory.class: Odesk\Phystrix\CommandMetricsFactory
   phystrix.request_cache.class: Odesk\Phystrix\RequestCache
   phystrix.request_log.class: Odesk\Phystrix\RequestLog
-  phystrix.command_factory.class: Odesk\Phystrix\CommandFactory
+  phystrix.command_factory.class: Odesk\Bundle\PhystrixBundle\Command\SymfonyCommandFactory
 
   phystrix.data_collector.class: Odesk\Bundle\PhystrixBundle\DataCollector\RequestLogDataCollector
 
@@ -51,6 +51,7 @@ services:
       - @phystrix.command_metrics_factory
       - @phystrix.request_cache
       - @phystrix.request_log
+      - @service_container
 
   phystrix.data_collector:
     class: %phystrix.data_collector.class%
