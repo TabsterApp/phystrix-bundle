@@ -29,12 +29,12 @@ services:
   phystrix.circuit_breaker_factory:
     class: %phystrix.circuit_breaker_factory.class%
     arguments:
-      - @phystrix.state_storage
+      - "@phystrix.state_storage"
 
   phystrix.command_metrics_factory:
     class: %phystrix.command_metrics_factory.class%
     arguments:
-      - @phystrix.state_storage
+      - "@phystrix.state_storage"
 
   phystrix.request_cache:
     class: %phystrix.request_cache.class%
@@ -45,16 +45,16 @@ services:
   phystrix.command_factory:
     class: %phystrix.command_factory.class%
     arguments:
-      - @phystrix.configuration
-      - @phystrix.service_locator
-      - @phystrix.circuit_breaker_factory
-      - @phystrix.command_metrics_factory
-      - @phystrix.request_cache
-      - @phystrix.request_log
+      - "@phystrix.configuration"
+      - "@phystrix.service_locator"
+      - "@phystrix.circuit_breaker_factory"
+      - "@phystrix.command_metrics_factory"
+      - "@phystrix.request_cache"
+      - "@phystrix.request_log"
 
   phystrix.data_collector:
     class: %phystrix.data_collector.class%
     arguments:
-      - @phystrix.request_log
+      - "@phystrix.request_log"
     tags:
       - { name: data_collector, template: "OdeskPhystrixBundle:Collector:phystrix", id: "phystrix"}
